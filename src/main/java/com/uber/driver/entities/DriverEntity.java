@@ -1,12 +1,16 @@
 package com.uber.driver.entities;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -38,6 +42,9 @@ public class DriverEntity {
 	
 	@Column(name = "updated_at")
 	private Date updatedAt;
+	
+	@OneToMany(mappedBy = "driver", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<VehicleEntity> vehicles;
 
 	public Integer getId() {
 		return id;

@@ -15,7 +15,7 @@ public class DriverService {
 	@Autowired
 	private DriverRepository driverRepository;
 
-	public void saveDriver(DriverDto driverDto) {
+	public DriverDto saveDriver(DriverDto driverDto) {
 		DriverEntity driverEntity = new DriverEntity();
 		driverEntity.setName(driverDto.getName());
 		driverEntity.setEmail(driverDto.getEmail());
@@ -26,5 +26,7 @@ public class DriverService {
 		driverEntity.setUpdatedAt(new Date());
 		
 		driverRepository.save(driverEntity);
+		driverDto.setId(driverEntity.getId());
+		return driverDto;
 	}
 }

@@ -6,10 +6,10 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.uber.driver.entities.DriverEntity;
+import com.uber.driver.entities.VehicleEntity;
 
 @Repository
-public class DriverRepository {
+public class VehicleRepository {
 
 	private EntityManager entityManager;
 
@@ -23,14 +23,8 @@ public class DriverRepository {
 	}
 	
 	@Transactional
-	public void save(DriverEntity driverEntity) {
-		entityManager.persist(driverEntity);
+	public void save(VehicleEntity vehicleEntity) {
+		entityManager.persist(vehicleEntity);
 	}
-	
-	@Transactional
-	public DriverEntity findById(Integer id) {
-		return entityManager.find(DriverEntity.class, id);
-	}
-	
 	
 }
