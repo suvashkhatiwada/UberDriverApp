@@ -31,4 +31,9 @@ public class DriverController {
 			@PathVariable(value = "driverId") Integer driverId) {
 		return vehicleService.save(vehicleDto, driverId);
 	}
+	
+	@RequestMapping(value="/{driverId}", method = RequestMethod.GET)
+	public DriverDto getDriver(@PathVariable Integer driverId) {
+		return driverService.getDriverDetails(driverId);
+	}
 }

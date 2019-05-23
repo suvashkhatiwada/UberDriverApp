@@ -40,6 +40,23 @@ public class VehicleService {
 		return vehicleDto;
 		// TODO veriify using sms
 	}
+	
+	@Transactional
+	public VehicleDto getVehicleDetails(Integer id) {
+		VehicleEntity vehicleEntity = vehicleRepository.findById(id);
+		VehicleDto vehicleDto = new VehicleDto();
+		if(vehicleEntity != null) {
+			vehicleDto.setId(vehicleEntity.getId());
+			vehicleDto.setLicensePlate(vehicleEntity.getLicensePlate());
+			vehicleDto.setMake(vehicleEntity.getMake());
+			vehicleDto.setModel(vehicleEntity.getModel());
+			vehicleDto.setVin(vehicleEntity.getVin());
+			vehicleDto.setYear(vehicleEntity.getYear());
+			vehicleDto.setDriverId(vehicleEntity.getDriver().getId());
+		}
+		
+		return vehicleDto;
+	}
 
 	
 }

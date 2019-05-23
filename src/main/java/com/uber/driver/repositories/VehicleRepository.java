@@ -27,4 +27,9 @@ public class VehicleRepository {
 		entityManager.persist(vehicleEntity);
 	}
 	
+	@Transactional
+	public VehicleEntity findById(Integer id) {
+		return entityManager.find(VehicleEntity.class, id);
+	}
+	
 }

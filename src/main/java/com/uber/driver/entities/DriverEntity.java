@@ -94,6 +94,14 @@ public class DriverEntity {
 		this.driverLicense = driverLicense;
 	}
 
+	public List<VehicleEntity> getVehicles() {
+		return vehicles;
+	}
+
+	public void setVehicles(List<VehicleEntity> vehicles) {
+		this.vehicles = vehicles;
+	}
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}

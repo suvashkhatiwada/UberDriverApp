@@ -2,6 +2,10 @@ package com.uber.driver.dtos;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(value = Include.NON_NULL)
 public class DriverDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
